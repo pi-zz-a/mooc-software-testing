@@ -13,7 +13,26 @@ public class CountLettersTest {
 
     @Test
     public void lastWordDoesNotMatch() {
-        int words = new CountLetters().count("cats|dog");
+        int words = new CountLetters().count("catr|dog");
+        Assertions.assertEquals(1, words);
+    }
+
+    @Test
+    public void firstWordDoesNotMatch() {
+        int words = new CountLetters().count("cat|dogs");
+        Assertions.assertEquals(1, words);
+    }
+
+
+    @Test
+    public void singleWordDoesNotMatch() {
+        int words = new CountLetters().count("cat");
+        Assertions.assertEquals(0, words);
+    }
+
+    @Test
+    public void singleWordDoesMatch() {
+        int words = new CountLetters().count("catr");
         Assertions.assertEquals(1, words);
     }
 
